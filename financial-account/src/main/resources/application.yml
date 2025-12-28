@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: MindCash
+  datasource:
+    url: jdbc:mysql://localhost:3306/mindcash-mysql
+    username: dev
+    password: dev
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: never
+  jpa:
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    open-in-view: true
+  thymeleaf:
+    cache: false
+  web:
+    resources:
+      static-locations: classpath:/static/
+server:
+  port: 8085
+logging:
+  file:
+    path: ./var/log
+dosegenius:
+  admin:
+    username: ${ADMIN_USERNAME}
