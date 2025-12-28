@@ -4,7 +4,8 @@ public final class Selects {
 
     private Selects() {}
 
-    public static final String SELECT_ALL = "SELECT * FROM expenses";
-    public static final String FIND_BY_ID = "SELECT idt_account FROM account WHERE idt_account = :id";
-
+    public static final String FIND_BY_ID =
+            "SELECT BIN_TO_UUID(idt_account) AS idt_account " +
+                    "FROM account " +
+                    "WHERE idt_account = UUID_TO_BIN(?)";
 }

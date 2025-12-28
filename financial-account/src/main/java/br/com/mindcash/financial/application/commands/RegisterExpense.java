@@ -2,7 +2,6 @@ package br.com.mindcash.financial.application.commands;
 
 import br.com.mindcash.financial.application.domain.models.account.AccountId;
 import br.com.mindcash.financial.application.domain.models.expense.*;
-
 import java.util.List;
 
 public record RegisterExpense(

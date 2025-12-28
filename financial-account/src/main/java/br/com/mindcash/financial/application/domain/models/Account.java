@@ -1,36 +1,26 @@
 package br.com.mindcash.financial.application.domain.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
+
 import br.com.mindcash.financial.application.commands.RegisterExpense;
 import br.com.mindcash.financial.application.commands.RegisterIncome;
 import br.com.mindcash.financial.application.domain.events.ExpenseRegistered;
 import br.com.mindcash.financial.application.domain.events.IncomeRegistered;
 import br.com.mindcash.financial.application.domain.models.account.AccountId;
-import br.com.mindcash.financial.application.domain.models.account.Country;
-import br.com.mindcash.financial.application.domain.models.account.Expense;
-import br.com.mindcash.financial.application.domain.models.account.Income;
+import br.com.mindcash.financial.application.domain.models.expense.ExpenseId;
+import br.com.mindcash.financial.application.domain.models.expense.Instant;
 
-public class Account {
-    private final AccountId id;
-
-    public Account(AccountId id) {
-        this.id = id;
-    }
-
-    public AccountId getId() {
-        return id;
-    }
+public record Account(AccountId id) {
 
     public ExpenseRegistered handle(RegisterExpense command) {
         return new ExpenseRegistered(
-                command.expenseId(),
+                new ExpenseId(UUID.randomUUID()),
                 command.accountId(),
                 command.description(),
                 command.category(),
                 command.status(),
                 command.amount(),
-                command.instant()
+                new Instant(java.time.Instant.now())
         );
     }
 

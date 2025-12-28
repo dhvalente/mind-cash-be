@@ -6,7 +6,7 @@ import br.com.mindcash.financial.application.domain.models.account.AccountId;
 
 public interface Accounts {
 
-    void save(AccountEvent event);
+    AccountEvent save(AccountEvent event);
 
     Account find(AccountId id);
 }

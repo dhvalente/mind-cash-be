@@ -8,10 +8,6 @@ public record Instant(java.time.Instant value) {
         if (value.isAfter(java.time.Instant.now())) {
             throw new IllegalArgumentException("Instant value must not be in the future.");
         }
-        // Verifica precisão: só segundos, sem nanos
-        if (value.getNano() != 0) {
-            throw new IllegalArgumentException("Instant value must have second precision only (no nanoseconds).");
-        }
     }
 }
 

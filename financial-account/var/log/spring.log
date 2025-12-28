@@ -1,0 +1,102 @@
+2025-12-28T17:31:59.734-03:00  INFO 28036 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Starting FinancialApplication using Java 21.0.8 with PID 28036 (C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\classes started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
+2025-12-28T17:31:59.736-03:00  INFO 28036 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T17:32:00.153-03:00  INFO 28036 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-12-28T17:32:00.174-03:00  INFO 28036 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 R2DBC repository interfaces.
+2025-12-28T17:32:00.501-03:00  INFO 28036 --- [MindCash] [main] f.a.AutowiredAnnotationBeanPostProcessor : Inconsistent constructor declaration on bean with name 'adapter': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public br.com.mindcash.financial.driven.account.Adapter(org.springframework.r2dbc.core.DatabaseClient,java.util.logging.Logger,org.springframework.transaction.reactive.TransactionalOperator)
+2025-12-28T17:32:00.527-03:00  WARN 28036 --- [MindCash] [main] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'registerExpenseHandler' defined in file [C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\classes\br\com\mindcash\financial\application\handlers\RegisterExpenseHandler.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'adapter' defined in file [C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\classes\br\com\mindcash\financial\driven\account\Adapter.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'java.util.logging.Logger' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-12-28T17:32:00.530-03:00  INFO 28036 --- [MindCash] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-28T17:32:00.542-03:00 ERROR 28036 --- [MindCash] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in br.com.mindcash.financial.driven.account.Adapter required a bean of type 'java.util.logging.Logger' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'java.util.logging.Logger' in your configuration.
+
+2025-12-28T17:32:43.665-03:00  INFO 32456 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Starting FinancialApplication using Java 21.0.8 with PID 32456 (C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\classes started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
+2025-12-28T17:32:43.668-03:00  INFO 32456 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T17:32:44.090-03:00  INFO 32456 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-12-28T17:32:44.117-03:00  INFO 32456 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 R2DBC repository interfaces.
+2025-12-28T17:32:44.430-03:00  INFO 32456 --- [MindCash] [main] f.a.AutowiredAnnotationBeanPostProcessor : Inconsistent constructor declaration on bean with name 'adapter': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public br.com.mindcash.financial.driven.account.Adapter(org.springframework.r2dbc.core.DatabaseClient,java.util.logging.Logger,org.springframework.transaction.reactive.TransactionalOperator)
+2025-12-28T17:32:44.901-03:00  INFO 32456 --- [MindCash] [main] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 8085 (http)
+2025-12-28T17:32:44.911-03:00  INFO 32456 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Started FinancialApplication in 1.614 seconds (process running for 1.903)
+2025-12-28T17:32:51.440-03:00  INFO 32456 --- [MindCash] [SpringApplicationShutdownHook] o.s.boot.reactor.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-28T17:32:51.443-03:00  INFO 32456 --- [MindCash] [netty-shutdown] o.s.boot.reactor.netty.GracefulShutdown  : Graceful shutdown complete
+2025-12-28T17:55:56.417-03:00  INFO 8428 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Starting FinancialApplication using Java 21.0.8 with PID 8428 (C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\classes started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
+2025-12-28T17:55:56.420-03:00  INFO 8428 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T17:55:56.871-03:00  INFO 8428 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-12-28T17:55:56.894-03:00  INFO 8428 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 R2DBC repository interfaces.
+2025-12-28T17:55:57.238-03:00  INFO 8428 --- [MindCash] [main] f.a.AutowiredAnnotationBeanPostProcessor : Inconsistent constructor declaration on bean with name 'adapter': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public br.com.mindcash.financial.driven.account.Adapter(org.springframework.r2dbc.core.DatabaseClient,java.util.logging.Logger,org.springframework.transaction.reactive.TransactionalOperator)
+2025-12-28T17:55:57.758-03:00  INFO 8428 --- [MindCash] [main] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 8085 (http)
+2025-12-28T17:55:57.766-03:00  INFO 8428 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Started FinancialApplication in 1.675 seconds (process running for 1.969)
+2025-12-28T17:56:03.099-03:00  INFO 20192 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Starting FinancialApplication using Java 21.0.8 with PID 20192 (C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\classes started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
+2025-12-28T17:56:03.102-03:00  INFO 20192 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T17:56:03.546-03:00  INFO 20192 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-12-28T17:56:03.567-03:00  INFO 20192 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 R2DBC repository interfaces.
+2025-12-28T17:56:03.912-03:00  INFO 20192 --- [MindCash] [main] f.a.AutowiredAnnotationBeanPostProcessor : Inconsistent constructor declaration on bean with name 'adapter': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public br.com.mindcash.financial.driven.account.Adapter(org.springframework.r2dbc.core.DatabaseClient,java.util.logging.Logger,org.springframework.transaction.reactive.TransactionalOperator)
+2025-12-28T17:56:06.466-03:00  WARN 20192 --- [MindCash] [main] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-12-28T17:56:06.469-03:00  INFO 20192 --- [MindCash] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-28T17:56:06.478-03:00 ERROR 20192 --- [MindCash] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+2025-12-28T17:56:48.359-03:00  INFO 29952 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Starting FinancialApplication using Java 21.0.8 with PID 29952 (C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\classes started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
+2025-12-28T17:56:48.362-03:00  INFO 29952 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T17:56:48.799-03:00  INFO 29952 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-12-28T17:56:48.824-03:00  INFO 29952 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 R2DBC repository interfaces.
+2025-12-28T17:56:49.138-03:00  INFO 29952 --- [MindCash] [main] f.a.AutowiredAnnotationBeanPostProcessor : Inconsistent constructor declaration on bean with name 'adapter': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public br.com.mindcash.financial.driven.account.Adapter(org.springframework.r2dbc.core.DatabaseClient,java.util.logging.Logger,org.springframework.transaction.reactive.TransactionalOperator)
+2025-12-28T17:56:49.635-03:00  INFO 29952 --- [MindCash] [main] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 8086 (http)
+2025-12-28T17:56:49.643-03:00  INFO 29952 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Started FinancialApplication in 1.659 seconds (process running for 1.956)
+2025-12-28T17:57:19.951-03:00  INFO 29952 --- [MindCash] [SpringApplicationShutdownHook] o.s.boot.reactor.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-28T17:57:19.953-03:00  INFO 29952 --- [MindCash] [netty-shutdown] o.s.boot.reactor.netty.GracefulShutdown  : Graceful shutdown complete
+2025-12-28T17:59:37.535-03:00  INFO 16436 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Starting FinancialApplication v0.0.1-SNAPSHOT using Java 21.0.8 with PID 16436 (C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\financial-account-0.0.1-SNAPSHOT.jar started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
+2025-12-28T17:59:37.544-03:00  INFO 16436 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T17:59:39.285-03:00  INFO 16436 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-12-28T17:59:39.357-03:00  INFO 16436 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 0 R2DBC repository interfaces.
+2025-12-28T17:59:40.691-03:00  INFO 16436 --- [MindCash] [main] f.a.AutowiredAnnotationBeanPostProcessor : Inconsistent constructor declaration on bean with name 'adapter': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public br.com.mindcash.financial.driven.account.Adapter(org.springframework.r2dbc.core.DatabaseClient,java.util.logging.Logger,org.springframework.transaction.reactive.TransactionalOperator)
+2025-12-28T17:59:43.289-03:00  INFO 16436 --- [MindCash] [main] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 8086 (http)
+2025-12-28T17:59:43.312-03:00  INFO 16436 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Started FinancialApplication in 6.859 seconds (process running for 10.489)
+2025-12-28T18:01:26.613-03:00  INFO 35552 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : Starting FinancialApplication using Java 21.0.8 with PID 35552 (C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account\target\classes started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
+2025-12-28T18:01:26.615-03:00  INFO 35552 --- [MindCash] [main] b.c.m.financial.FinancialApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T18:01:27.040-03:00  INFO 35552 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-12-28T18:01:27.058-03:00  INFO 35552 --- [MindCash] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 R2DBC repository interfaces.
+2025-12-28T18:01:27.397-03:00  INFO 35552 --- [MindCash] [main] f.a.AutowiredAnnotationBeanPostProcessor : Inconsistent constructor declaration on bean with name 'adapter': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public br.com.mindcash.financial.driven.account.Adapter(org.springframework.r2dbc.core.DatabaseClient,java.util.logging.Logger,org.springframework.transaction.reactive.TransactionalOperator)
+2025-12-28T18:01:29.912-03:00  WARN 35552 --- [MindCash] [main] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-12-28T18:01:29.915-03:00  INFO 35552 --- [MindCash] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-28T18:01:29.925-03:00 ERROR 35552 --- [MindCash] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8086 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8086 or configure this application to listen on another port.
+

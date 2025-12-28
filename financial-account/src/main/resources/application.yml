@@ -6,6 +6,10 @@ spring:
     username: dev
     password: dev
     driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
   sql:
     init:
       mode: never
@@ -21,10 +25,10 @@ spring:
     resources:
       static-locations: classpath:/static/
 server:
-  port: 8085
+  port: 8088
 logging:
   file:
     path: ./var/log
-dosegenius:
-  admin:
-    username: ${ADMIN_USERNAME}
+  level:
+    org.flywaydb: DEBUG
+    org.springframework.boot.autoconfigure.flyway: DEBUG

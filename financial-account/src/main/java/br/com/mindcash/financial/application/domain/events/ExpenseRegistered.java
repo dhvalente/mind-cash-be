@@ -16,5 +16,6 @@ public record ExpenseRegistered(
     Status status,
     Amount amount,
     Instant instant
-) implements AccountEvent {}
+) implements AccountEvent {
+}
 

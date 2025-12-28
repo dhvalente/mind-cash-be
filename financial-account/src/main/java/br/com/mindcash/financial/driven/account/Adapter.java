@@ -1,89 +1,54 @@
 package br.com.mindcash.financial.driven.account;
 
 import br.com.mindcash.financial.application.domain.events.AccountEvent;
-import br.com.mindcash.financial.application.domain.events.ExpenseRegistered;
-import br.com.mindcash.financial.application.domain.events.IncomeRegistered;
 import br.com.mindcash.financial.application.domain.models.Account;
 import br.com.mindcash.financial.application.domain.models.account.AccountId;
 import br.com.mindcash.financial.application.ports.outbound.Accounts;
-import org.springframework.r2dbc.core.DatabaseClient;
-import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
-
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.UUID;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+import static br.com.mindcash.financial.driven.account.Selects.FIND_BY_ID;
 
 @Component
 public class Adapter implements Accounts {
-    private final DatabaseClient databaseClient;
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired(required = false)
-    public Adapter(@Nullable DatabaseClient databaseClient) {
-        this.databaseClient = databaseClient;
+    public Adapter(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
-
-
     @Override
-    public void save(AccountEvent event) {
-        if (event instanceof ExpenseRegistered er) {
-            var amount = er.amount();
-            UUID transactionId = er.expenseId().value();
-            LocalDateTime dat = LocalDateTime.ofInstant(er.instant().value(), ZoneOffset.UTC);
+    @Transactional
+    public AccountEvent save(AccountEvent event) {
+        List<AccountEvent.Statement> stmts = event.statements();
 
-            databaseClient.sql("INSERT INTO transactions (idt_transaction, idt_transaction_type, dat_transaction, idt_account, val_amount, des_transaction, ind_category, ind_status, cod_currency) VALUES (:idt_transaction, :idt_transaction_type, :dat_transaction, :idt_account, :val_amount, :des_transaction, :ind_category, :ind_status, :cod_currency)")
-                    .bind("idt_transaction", transactionId)
-                    .bind("idt_transaction_type", "DEBIT")
-                    .bind("dat_transaction", dat)
-                    .bind("idt_account", UUID.fromString(er.accountId().value()))
-                    .bind("val_amount", amount.value())
-                    .bind("des_transaction", er.description().value())
-                    .bind("ind_category", er.category().name())
-                    .bind("ind_status", er.status().name())
-                    .bind("cod_currency", amount.currency().getCurrencyCode())
-                    .fetch()
-                    .rowsUpdated()
-                    .block();
-
-            return;
+        for (AccountEvent.Statement st : stmts) {
+            String template = st.template();
+            Object[] args = st.args();
+            int updated;
+            try {
+                    updated = jdbcTemplate.update(template, args);
+            } catch (DataAccessException ex) {
+                throw new IllegalStateException("Failed to execute statement: " + template, ex);
+            }
+            if (updated <= 0) {
+                throw new IllegalStateException("No rows affected for statement: " + template);
+            }
         }
-
-        if (event instanceof IncomeRegistered ir) {
-            var amount = ir.amount();
-            UUID transactionId = ir.incomeId().value();
-            LocalDateTime dat = LocalDateTime.ofInstant(ir.instant().value(), ZoneOffset.UTC);
-
-            databaseClient.sql("INSERT INTO transactions (idt_transaction, idt_transaction_type, dat_transaction, idt_account, val_amount, des_transaction, ind_category, ind_status, cod_currency) VALUES (:idt_transaction, :idt_transaction_type, :dat_transaction, :idt_account, :val_amount, :des_transaction, :ind_category, :ind_status, :cod_currency)")
-                    .bind("idt_transaction", transactionId)
-                    .bind("idt_transaction_type", "CREDIT")
-                    .bind("dat_transaction", dat)
-                    .bind("idt_account", UUID.fromString(ir.accountId().value()))
-                    .bind("val_amount", amount.value())
-                    .bind("des_transaction", ir.description().value())
-                    .bind("ind_category", ir.category().name())
-                    .bind("ind_status", ir.status().name())
-                    .bind("cod_currency", amount.currency().getCurrencyCode())
-                    .fetch()
-                    .rowsUpdated()
-                    .block();
-
-            return;
-        }
-
-        throw new IllegalArgumentException("Unsupported AccountEvent type: " + event.getClass());
+        return event;
     }
 
     @Override
     public Account find(AccountId id) {
-        return databaseClient.sql(Selects.FIND_BY_ID)
-                .bind("id", UUID.fromString(id.value()))
-                .map((row, metadata) -> {
-                    java.util.UUID uuid = row.get("idt_account", java.util.UUID.class);
-                    return new Account(new AccountId(uuid.toString()));
-                })
-                .one()
-                .block();
+        return jdbcTemplate.queryForObject(
+                FIND_BY_ID,
+                new Object[]{ id.value() },
+                new int[]{ java.sql.Types.VARCHAR },
+                (rs, rowNum) -> new Account(new AccountId(rs.getString("idt_account")))
+        );
     }
 }
