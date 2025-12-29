@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS expense (
     idt_account BINARY(16) NOT NULL COMMENT 'UUID da conta associada à despesa',
     dat_expense DATETIME(6) NOT NULL COMMENT 'Momento em que a despesa foi registrada (instant)',
     des_expense VARCHAR(255) NOT NULL COMMENT 'Descrição detalhada da despesa',
+    ind_type VARCHAR(50) NOT NULL COMMENT 'Tipo da despesa (ex: Fixa, Variável)',
     ind_category VARCHAR(50) NOT NULL COMMENT 'Categoria da despesa (ex: ALIMENTAÇÃO, TRANSPORTE)',
     ind_status VARCHAR(20) NOT NULL COMMENT 'Status da despesa (ex: PAGO, PENDENTE)',
     val_amount DECIMAL(15,3) NOT NULL COMMENT 'Valor da despesa (sempre positivo)',

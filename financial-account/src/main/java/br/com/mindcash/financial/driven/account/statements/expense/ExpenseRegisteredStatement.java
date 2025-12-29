@@ -10,9 +10,9 @@ public final class ExpenseRegisteredStatement {
 
     public static AccountEvent.Statement from(ExpenseRegistered event) {
         String sql = "INSERT INTO expense (" +
-                "idt_expense, idt_account, dat_expense, des_expense, ind_category, ind_status, val_amount, cod_currency" +
+                "idt_expense, idt_account, dat_expense, des_expense, ind_type, ind_category, ind_status, val_amount, cod_currency" +
                 ") VALUES (" +
-                "UUID_TO_BIN(?), UUID_TO_BIN(?), ?, ?, ?, ?, ?, ?" +
+                "UUID_TO_BIN(?), UUID_TO_BIN(?), ?, ?, ?, ?, ?, ?, ?" +
                 ")";
 
         Object[] args = new Object[] {
@@ -20,6 +20,7 @@ public final class ExpenseRegisteredStatement {
                 String.valueOf(event.accountId().value()),
                 Timestamp.from(event.instant().value()),
                 String.valueOf(event.description().value()),
+                String.valueOf(event.type().toString()),
                 String.valueOf(event.category().toString()),
                 String.valueOf(event.status().toString()),
                 event.amount().value(),

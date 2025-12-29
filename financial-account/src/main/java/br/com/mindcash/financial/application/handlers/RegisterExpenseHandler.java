@@ -8,7 +8,7 @@ import br.com.mindcash.financial.application.ports.outbound.Accounts;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RegisterExpenseHandler implements CommandHandler<RegisterExpense, Void> {
+public class RegisterExpenseHandler implements CommandHandler<RegisterExpense> {
 
     private final Accounts accounts;
 
@@ -24,7 +24,6 @@ public class RegisterExpenseHandler implements CommandHandler<RegisterExpense, V
         }
 
         AccountEvent event = account.handle(command);
-
-        AccountEvent saved = accounts.save(event);
+        accounts.save(event);
     }
 }

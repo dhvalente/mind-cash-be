@@ -1,7 +1,6 @@
 package br.com.mindcash.financial.application.domain.models;
 
 import java.util.UUID;
-
 import br.com.mindcash.financial.application.commands.RegisterExpense;
 import br.com.mindcash.financial.application.commands.RegisterIncome;
 import br.com.mindcash.financial.application.domain.events.ExpenseRegistered;
@@ -17,6 +16,7 @@ public record Account(AccountId id) {
                 new ExpenseId(UUID.randomUUID()),
                 command.accountId(),
                 command.description(),
+                command.type(),
                 command.category(),
                 command.status(),
                 command.amount(),

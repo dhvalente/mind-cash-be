@@ -7,6 +7,7 @@ import java.util.List;
 public record RegisterExpense(
         AccountId accountId,
         Description description,
+        Type type,
         Category category,
         Status status,
         Amount amount,

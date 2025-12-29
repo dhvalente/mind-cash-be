@@ -4,7 +4,6 @@ import br.com.mindcash.financial.application.domain.events.AccountEvent;
 import br.com.mindcash.financial.application.domain.models.Account;
 import br.com.mindcash.financial.application.domain.models.account.AccountId;
 import br.com.mindcash.financial.application.ports.outbound.Accounts;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -16,7 +15,6 @@ import static br.com.mindcash.financial.driven.account.Selects.FIND_BY_ID;
 public class Adapter implements Accounts {
     private final JdbcTemplate jdbcTemplate;
 
-    @Autowired(required = false)
     public Adapter(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
