@@ -1,14 +1,14 @@
 package br.com.mindcash.financial.driven.account.statements.expense;
 
-import br.com.mindcash.financial.application.domain.events.AccountEvent;
 import br.com.mindcash.financial.application.domain.events.ExpenseRegistered;
+import br.com.mindcash.financial.driven.account.statements.Statement;
 import java.sql.Timestamp;
 
 public final class ExpenseRegisteredStatement {
 
     private ExpenseRegisteredStatement() {}
 
-    public static AccountEvent.Statement from(ExpenseRegistered event) {
+    public static Statement from(ExpenseRegistered event) {
         String sql = "INSERT INTO expense (" +
                 "idt_expense, idt_account, dat_expense, des_expense, ind_type, ind_category, ind_status, val_amount, cod_currency" +
                 ") VALUES (" +
@@ -27,6 +27,6 @@ public final class ExpenseRegisteredStatement {
                 event.amount().currency().getCurrencyCode()
         };
 
-        return new AccountEvent.Statement(sql, args);
+        return new Statement(sql, args);
     }
 }
