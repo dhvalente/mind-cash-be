@@ -1,24 +1,25 @@
-package br.com.mindcash.financial.driven.account.statements.expense;
+package br.com.mindcash.financial.driven.account.statements.income;
 
-import br.com.mindcash.financial.application.domain.events.ExpenseRegistered;
+import br.com.mindcash.financial.application.domain.events.IncomeRegistered;
 import br.com.mindcash.financial.driven.account.statements.Statement;
+
 import java.sql.Timestamp;
 
-public final class ExpenseRegisteredStatement {
+public final class IncomeRegisteredStatement {
 
-    private ExpenseRegisteredStatement() {}
+    private IncomeRegisteredStatement() {}
 
-    public static Statement from(ExpenseRegistered event) {
-        String sql = "INSERT INTO expense (" +
-                "idt_expense, idt_account, dat_expense, des_expense, ind_type, ind_category, ind_status, val_amount, cod_currency" +
+    public static Statement from(IncomeRegistered event) {
+        String sql = "INSERT INTO income (" +
+                "idt_income, idt_account, dat_income, des_income, ind_type, ind_category, ind_status, val_amount, cod_currency" +
                 ") VALUES (" +
                 "UUID_TO_BIN(?), UUID_TO_BIN(?), ?, ?, ?, ?, ?, ?, ?" +
                 ")";
 
         Object[] args = new Object[] {
-                String.valueOf(event.expenseId().value()),
+                String.valueOf(event.incomeId().value()),
                 String.valueOf(event.accountId().value()),
-                Timestamp.from(event.expenseInstant().value()),
+                Timestamp.from(event.incomeInstant().value()),
                 String.valueOf(event.description().value()),
                 String.valueOf(event.type().toString()),
                 String.valueOf(event.category().toString()),

@@ -26,15 +26,14 @@ public class Adapter implements Accounts {
 
     @Override
     @Transactional
-    public AccountEvent save(AccountEvent event) {
+    public void save(AccountEvent event) {
         List<Statement> stmts = statementsMapper.from(event);
 
         for (Statement st : stmts) {
             String template = st.template();
-            Object[] args = st.args();
             int updated;
             try {
-                updated = jdbcTemplate.update(template, args);
+                updated = jdbcTemplate.update(template,  st.args());
             } catch (org.springframework.dao.DataAccessException ex) {
                 throw new IllegalStateException("Failed to execute statement: " + template, ex);
             }
@@ -42,7 +41,6 @@ public class Adapter implements Accounts {
                 throw new IllegalStateException("No rows affected for statement: " + template);
             }
         }
-        return event;
     }
 
     @Override

@@ -1,4 +1,3 @@
--- sql
 CREATE TABLE IF NOT EXISTS expense (
     idt_expense BINARY(16) NOT NULL COMMENT 'UUID que identifica a despesa',
     idt_account BINARY(16) NOT NULL COMMENT 'UUID da conta associada à despesa',

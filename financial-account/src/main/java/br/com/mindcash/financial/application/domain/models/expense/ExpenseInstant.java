@@ -1,7 +1,7 @@
 package br.com.mindcash.financial.application.domain.models.expense;
 
-public record Instant(java.time.Instant value) {
-    public Instant {
+public record ExpenseInstant(java.time.Instant value) {
+    public ExpenseInstant {
         if (value == null) {
             throw new IllegalArgumentException("Instant value must not be null.");
         }

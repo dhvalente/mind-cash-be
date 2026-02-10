@@ -5,7 +5,7 @@ import br.com.mindcash.financial.application.domain.models.income.Description;
 import br.com.mindcash.financial.application.domain.models.income.Category;
 import br.com.mindcash.financial.application.domain.models.income.Status;
 import br.com.mindcash.financial.application.domain.models.income.Amount;
-import br.com.mindcash.financial.application.domain.models.income.Instant;
+import br.com.mindcash.financial.application.domain.models.income.IncomeInstant;
 
 public record Income(
     IncomeId incomeId,
@@ -14,6 +14,6 @@ public record Income(
     Category category,
     Status status,
     Amount amount,
-    Instant instant
+    IncomeInstant incomeInstant
 ) {}
 

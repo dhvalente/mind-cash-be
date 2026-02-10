@@ -1,4 +1,3 @@
--- sql
 CREATE TABLE IF NOT EXISTS account (
     idt_account BINARY(16) NOT NULL COMMENT 'UUID que identifica a conta',
     des_account VARCHAR(255) NOT NULL COMMENT 'Descrição/nome da conta',
