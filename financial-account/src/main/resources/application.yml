@@ -29,6 +29,3 @@ server:
 logging:
   file:
     path: ./var/log
-  level:
-    org.flywaydb: DEBUG
-    org.springframework.boot.autoconfigure.flyway: DEBUG
