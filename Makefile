@@ -37,7 +37,7 @@ clean:
 
 report:
 	@echo "Abrindo relatorio de cobertura..."
-	@start "" "$(JACOCO_REPORT)"
+	@powershell -command "Start-Process '$(JACOCO_REPORT)'"
 
 run:
 	@echo "Iniciando aplicacao..."
@@ -45,4 +45,3 @@ run:
 
 all: clean build test
 	@echo "Build completo!"
-
