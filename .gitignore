@@ -144,6 +144,7 @@ temp/
 
 # Application logs
 var/log/
+spring.log
 *.log.20*.gz
 
 # Database files

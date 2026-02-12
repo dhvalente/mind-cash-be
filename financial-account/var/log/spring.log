@@ -1,6 +1,0 @@
-2026-02-12T19:25:42.830-03:00  INFO 3292 --- [MindCash] [Test worker] b.c.m.f.FinancialApplicationTests        : Starting FinancialApplicationTests using Java 21.0.8 with PID 3292 (started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
-2026-02-12T19:25:42.835-03:00  INFO 3292 --- [MindCash] [Test worker] b.c.m.f.FinancialApplicationTests        : No active profile set, falling back to 1 default profile: "default"
-2026-02-12T19:25:44.494-03:00  INFO 3292 --- [MindCash] [Test worker] b.c.m.f.FinancialApplicationTests        : Started FinancialApplicationTests in 2.168 seconds (process running for 4.976)
-2026-02-12T19:26:12.783-03:00  INFO 23952 --- [MindCash] [Test worker] b.c.m.f.FinancialApplicationTests        : Starting FinancialApplicationTests using Java 21.0.8 with PID 23952 (started by DIOGO in C:\Users\DIOGO\OneDrive\Desktop\Sandbox\Projetos\Backend\Java\mind-cash-be\financial-account)
-2026-02-12T19:26:12.785-03:00  INFO 23952 --- [MindCash] [Test worker] b.c.m.f.FinancialApplicationTests        : No active profile set, falling back to 1 default profile: "default"
-2026-02-12T19:26:14.362-03:00  INFO 23952 --- [MindCash] [Test worker] b.c.m.f.FinancialApplicationTests        : Started FinancialApplicationTests in 1.988 seconds (process running for 4.44)
